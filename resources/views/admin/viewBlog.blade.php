@@ -4,6 +4,7 @@
 <head>
     @include('admin.adminCss')
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
 </head>
 
 <body class="bg-gray-900 text-white">
@@ -37,7 +38,7 @@
                                 @foreach ($posts as $post)
                                 <tr class="hover:bg-gray-700 transition duration-200">
                                     <td class="px-6 py-4 text-sm">{{ $loop->index + 1 }}</td>
-                                    <td class="px-6 py-4 text-sm">{{ $post->title }}</td>
+                                    <td class="px-6 py-4 max-w-xs break-words text-sm whitespace-normal">{{ $post->title }}</td>
                                     <td class="px-6 py-4 text-sm max-w-xs break-words whitespace-normal">{{ $post->content }}</td>
                                     <td class="px-6 py-4 text-sm">
                                         <img src="{{ asset('postImage/' . $post->image) }}" class="w-24 h-16 rounded-xl object-cover shadow-md border-2 border-gray-600 hover:scale-110 transition-transform duration-300">
@@ -45,12 +46,12 @@
                                     <td class="px-6 py-4 text-sm">{{ $post->user_name }}</td>
                                     <td class="px-6 py-4 text-sm">{{ $post->user_type }}</td>
                                     <td class="px-6 py-4 text-sm">
-                                        <a href="{{ route('adminViewEdit', ['id' => $post->id]) }}">
-                                            <button class="bg-blue-600 hover:bg-blue-500 px-4 py-2 rounded-lg text-white font-semibold transition duration-200">Edit</button>
-                                        </a>
-                                        <a href="{{ route('adminDeletePost', ['id' => $post->id]) }}">
-                                            <button class="bg-red-600 hover:bg-red-500 px-4 py-2 rounded-lg text-white font-semibold transition duration-200 ml-2">Delete</button>
-                                        </a>
+                                        <div class="flex">
+                                            <a href="{{ route('adminViewEdit', ['id' => $post->id]) }}">
+                                                <button class="bg-blue-600 border hover:bg-blue-500 px-4 py-2 rounded-lg text-white font-semibold transition duration-200">Edit</button>
+                                            </a>
+                                            <button onclick="confirmDelete('{{ route('adminDeletePost', ['id' => $post->id]) }}')" class="bg-red-600 hover:bg-red-500 px-3 py-2 rounded-lg text-white font-semibold transition duration-200 ml-2">Delete</button>
+                                        </div>
                                     </td>
                                 </tr>
                                 @endforeach
@@ -72,6 +73,22 @@
             <script src="adminPannel/vendor/jquery-validation/jquery.validate.min.js"></script>
             <script src="adminPannel/js/charts-home.js"></script>
             <script src="adminPannel/js/front.js"></script>
+
+            <script>
+                function confirmDelete(url) {
+                    swal({
+                        title: "Are you sure?",
+                        text: "Once deleted, you will not be able to recover this post!",
+                        icon: "warning",
+                        buttons: true,
+                        dangerMode: true,
+                    }).then((willDelete) => {
+                        if (willDelete) {
+                            window.location.href = url;
+                        }
+                    });
+                }
+            </script>
 
         </x-app-layout>
     </div>

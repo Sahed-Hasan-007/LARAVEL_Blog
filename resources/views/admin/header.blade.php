@@ -145,7 +145,7 @@
                     <div aria-labelledby="languages" class="dropdown-menu"><a rel="nofollow" href="#" class="dropdown-item"><span>German</span></a><a rel="nofollow" href="#" class="dropdown-item"> <span>French </span></a></div>
                 </div>
                 <!-- Log out               -->
-                <div class="list-inline-item logout"> <a id="logout" href="login.html" class="nav-link">Logout <i class="icon-logout"></i></a></div>
+                <!-- <div class="list-inline-item logout"> <a id="logout" href="login.html" class="nav-link">Logout <i class="icon-logout"></i></a></div> -->
             </div>
         </div>
     </nav>

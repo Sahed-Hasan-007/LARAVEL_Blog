@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
 
 
 Route::get('/',[HomeController::class,'homeView'])->name('landingPage');
@@ -17,5 +18,8 @@ Route::get('/home/deleteBlog/{id}', [AdminController::class,'deletePost'])->name
 Route::get('/home/editBlog/{id}', [AdminController::class,'viewEdit'])->name('adminViewEdit');
 Route::put('/home/editBlog/{id}', [AdminController::class,'editPost'])->name('adminEditPost');
 
+//user route
+Route::get('/post/{id}', [UserController::class, 'viewPost'])->name('userViewPost');
+Route::post('/comments/store/{id}', [UserController::class, 'storeComment'])->name('userStoreComment');
 
 

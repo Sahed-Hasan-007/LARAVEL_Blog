@@ -22,11 +22,6 @@
 
                     <!-- Create Blog Form start-->
 
-                     <!-- Alert Message start-->
-                     
-                     <!-- Alert Message  start-->
-
-
                     <div class="container flex justify-center min-h-screen pt-8 pb-50 bg-gray-900">
                     
                         <form method="POST" action="{{ route('adminAddPost') }}" enctype="multipart/form-data" class="space-y-6 font-[sans-serif] max-w-md w-full bg-gray-800 p-8 rounded-2xl shadow-lg" enctype="multipart/form-data">
