@@ -13,5 +13,9 @@ Route::get('/home/viewAddBlog', [AdminController::class,'viewAddPost'])->name('a
 Route::view('/adminHome', 'admin/index')->name('adminHome');
 Route::post('/home/addBlog', [AdminController::class,'addPost'])->name('adminAddPost');
 Route::get('/home/viewBlog', [AdminController::class,'viewPost'])->name('adminViewPost');
+Route::get('/home/deleteBlog/{id}', [AdminController::class,'deletePost'])->name('adminDeletePost');
+Route::get('/home/editBlog/{id}', [AdminController::class,'viewEdit'])->name('adminViewEdit');
+Route::put('/home/editBlog/{id}', [AdminController::class,'editPost'])->name('adminEditPost');
+
 
 
