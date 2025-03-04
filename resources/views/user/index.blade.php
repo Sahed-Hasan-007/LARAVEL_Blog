@@ -24,16 +24,24 @@
 
                         <!-- # Blog Card -->
                         @foreach ($posts as $post)
-                        <div class="group border border-gray-300 rounded-2xl transform transition duration-500 hover:scale-105 hover:shadow-2xl">
+                        <div class="group border border-gray-300 rounded-2xl transform transition duration-500 hover:scale-105 hover:shadow-2xl flex flex-col">
                             <div class="flex items-center">
                                 <img src="{{ asset('postImage/' . $post->image) }}" alt="blogs tailwind section"
                                     class="rounded-t-2xl w-full h-48 object-cover">
                             </div>
-                            <div class="p-4 lg:p-6 transition-all duration-300 rounded-b-2xl group-hover:bg-gray-50">
-                                <span class="text-indigo-600 font-medium mb-3 block">{{ $post->created_at }}</span>
-                                <h4 class="text-xl text-gray-900 font-medium leading-8 mb-5">{{ $post->title }}</h4>
-                                <p class="text-gray-500 leading-6 mb-10">{{ $post->content }}</p>
-                                <a href="{{ route('userViewPost', ['id' => $post->id]) }}" class="inline-flex items-center px-4 py-2 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-black focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-opacity-75 transition duration-200">
+                            <div class="p-4 lg:p-6 transition-all duration-300 rounded-b-2xl flex flex-col justify-between flex-grow">
+                                <div class="flex gap-2 mb-4">
+                                    <div class="flex items-center gap-3  text-gray-600">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zM12 14c-3.31 0-6 2.69-6 6v1h12v-1c0-3.31-2.69-6-6-6z" fill="currentColor" />
+                                        </svg>
+                                        <span class="font-semibold">{{ $post->user_name }}</span>
+                                    </div>
+                                    <span class="text-indigo-600 font-medium block">[{{ $post->created_at }}]</span>
+                                </div>
+                                <h4 class="text-xl text-gray-900 font-medium leading-8 mb-5 overflow-hidden line-clamp-2">{{ $post->title }}</h4>
+                                <p class="text-gray-500 leading-6 mb-10 overflow-hidden line-clamp-3">{{ $post->content }}</p>
+                                <a href="{{ route('userViewPost', ['id' => $post->id]) }}" class="inline-flex items-center px-4 py-2 mr-48 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-black focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-opacity-75 transition duration-200 mt-auto">
                                     Explore
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
@@ -41,6 +49,7 @@
                                 </a>
                             </div>
                         </div>
+
                         @endforeach
 
                     </div>

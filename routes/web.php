@@ -17,9 +17,17 @@ Route::get('/home/viewBlog', [AdminController::class,'viewPost'])->name('adminVi
 Route::get('/home/deleteBlog/{id}', [AdminController::class,'deletePost'])->name('adminDeletePost');
 Route::get('/home/editBlog/{id}', [AdminController::class,'viewEdit'])->name('adminViewEdit');
 Route::put('/home/editBlog/{id}', [AdminController::class,'editPost'])->name('adminEditPost');
+Route::get('/home/viewUser', [AdminController::class,'viewUser'])->name('adminViewUser');
+Route::get('/home/editUser/{id}', [AdminController::class,'viewUserEdit'])->name('adminViewUserEdit');
+Route::put('/home/editUser/{id}', [AdminController::class,'editUser'])->name('adminEditUser');
+Route::get('/home/deleteUser/{id}', [AdminController::class,'deleteUser'])->name('adminDeleteUser');
+
 
 //user route
 Route::get('/post/{id}', [UserController::class, 'viewPost'])->name('userViewPost');
 Route::post('/comments/store/{id}', [UserController::class, 'storeComment'])->name('userStoreComment');
+Route::post('/like/{id}', [UserController::class, 'addLike'])->name('userAddLike');
+
+
 
 

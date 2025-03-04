@@ -1,7 +1,10 @@
 <section class="py-10 relative">
     <div class="w-full max-w-7xl px-4 md:px-5 lg:px-5 mx-auto">
         <div class="w-full flex-col justify-start items-start lg:gap-14 gap-4 inline-flex">
-            <h2 class="w-full text-gray-900 text-4xl font-bold font-manrope leading-normal">Comments</h2>
+            <h2 class="w-full text-gray-900 text-4xl font-bold font-manrope leading-normal flex items-center gap-2">
+                <span>Comments</span>
+                <span class="text-indigo-600 text-lg bg-indigo-100 px-3 py-1 rounded-full shadow-md">{{ $comments->count() }} comments</span>
+            </h2>
             <form action="{{ route('userStoreComment',['id' => $post->id])}}" method="POST" class="w-full flex-col justify-start items-start gap-5 flex">
                 @csrf
                 <div class="w-full rounded-3xl justify-start items-start gap-3.5 inline-flex">

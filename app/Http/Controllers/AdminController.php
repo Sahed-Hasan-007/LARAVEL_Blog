@@ -92,4 +92,33 @@ class AdminController extends Controller
 
         return redirect()->route('adminViewPost')->with('message', 'Post updated successfully');
     }
+
+    public function viewUser()
+    {
+        return view('admin/viewUser', ['users' => User::get()]);
+    }
+
+    public function viewUserEdit($id)
+    {
+        $user = User::where('id', $id)->first();
+        return view('admin/viewUserEdit', ['user' => $user]);
+    }
+
+    public function editUser(Request $request, $id)
+    {
+        $user = User::findOrFail($id);
+        $user->name = $request->name;
+        $user->role = $request->role;
+
+        $user->save();
+        return redirect()->route('adminViewUser')->with('message', 'User updated successfully');
+    }
+
+    public function deleteUser($id)
+    {
+        $user = User::where('id', $id)->first();
+        $user->delete();
+        return redirect()->back()->with('message', 'User deleted Successfully');
+    }
+
 }

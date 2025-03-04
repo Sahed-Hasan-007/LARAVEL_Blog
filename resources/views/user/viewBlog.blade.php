@@ -9,7 +9,7 @@
 </head>
 
 <body class="bg-gray-50">
-    <div class="py-16 px-20">
+    <div class="py-8 px-2 md:py-16 md:px-20">
         <section class="relative">
             <div class="w-full mx-auto p-8 sm:px-6 lg:px-8 border-2 rounded-md shadow-md ">
                 @include('user/blogBody')
