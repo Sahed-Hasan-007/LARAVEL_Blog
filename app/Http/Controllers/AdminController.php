@@ -6,27 +6,44 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use illuminate\Support\Facades\Auth;
 use App\Models\Post;
+use App\Models\Comment;
+use App\Models\Category;
 
 class AdminController extends Controller
 {
     public function index()
-    {
-        if (Auth::id()) {
-            $role = Auth::user()->role;
+{
+    if (Auth::id()) {
+        $role = Auth::user()->role;
+        $totalUsers = User::count();
+        $totalPosts = Post::count();
+        $totalComments = Comment::count();
 
-            if ($role == 'user') {
-                return view('user/index',['posts' => Post::get()]);
-            } else if ($role == 'admin') {
-                return view('admin/index');
-            } else {
-                return redirect()->back();
-            }
+        if ($role == 'user') {
+            return view('user/index', ['posts' => Post::with('categories')->get()]);
+        } else if ($role == 'admin') {
+            return view('admin/index', [
+                'totalUsers' => $totalUsers,
+                'totalPosts' => $totalPosts,
+                'totalComments' => $totalComments
+            ]);
+        } else {
+            return redirect()->back();
         }
     }
+}
+
 
     public function viewAddPost()
     {
-        return view('admin/addBlog');
+        $categories = Category::all();
+        // dd($categories);
+        return view('admin/addBlog', compact('categories'));
+    }
+    public function viewAddUser()
+    {
+
+        return view('admin/adduser');
     }
 
     public function AddPost(Request $request)
@@ -47,14 +64,42 @@ class AdminController extends Controller
         $post->user_name = $user_name;
         $post->user_type = $user_type;
         $post->save();
+        if ($request->has('categories')) {
+            $post->categories()->sync($request->categories);
+        }
+
         return redirect()->back()->with('message', 'Post Added Successfully');
     }
 
 
+    public function addUser(Request $request)
+{
+    $request->validate([
+        'name' => 'required|string|max:255',
+        'email' => 'required|email|unique:users,email',
+        'password' => 'required|string|min:6',
+        'role' => 'required|in:user,admin'
+    ]);
+
+    $user = new User();
+    $user->name = $request->name;
+    $user->email = $request->email;
+    $user->password = bcrypt($request->password);
+    $user->role = $request->role;
+    $user->save();
+
+    return redirect()->back()->with('message', 'User added successfully!');
+}
+
+
     public function viewPost()
     {
-        return view('admin/viewBlog', ['posts' => Post::get()]);
+        return view('admin/viewBlog', [
+            'posts' => Post::with('categories')->get()->reverse()
+
+        ]);
     }
+
 
     public function deletePost($id)
     {
@@ -120,5 +165,4 @@ class AdminController extends Controller
         $user->delete();
         return redirect()->back()->with('message', 'User deleted Successfully');
     }
-
 }

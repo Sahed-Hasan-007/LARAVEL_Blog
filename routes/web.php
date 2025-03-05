@@ -16,11 +16,14 @@ Route::post('/home/addBlog', [AdminController::class,'addPost'])->name('adminAdd
 Route::get('/home/viewBlog', [AdminController::class,'viewPost'])->name('adminViewPost');
 Route::get('/home/deleteBlog/{id}', [AdminController::class,'deletePost'])->name('adminDeletePost');
 Route::get('/home/editBlog/{id}', [AdminController::class,'viewEdit'])->name('adminViewEdit');
+Route::get('/home/addUser', [AdminController::class,'viewAddUser'])->name('adminViewAddUser');
 Route::put('/home/editBlog/{id}', [AdminController::class,'editPost'])->name('adminEditPost');
 Route::get('/home/viewUser', [AdminController::class,'viewUser'])->name('adminViewUser');
 Route::get('/home/editUser/{id}', [AdminController::class,'viewUserEdit'])->name('adminViewUserEdit');
 Route::put('/home/editUser/{id}', [AdminController::class,'editUser'])->name('adminEditUser');
 Route::get('/home/deleteUser/{id}', [AdminController::class,'deleteUser'])->name('adminDeleteUser');
+Route::post('/admin/add-user', [AdminController::class, 'addUser'])->name('adminAddUser');
+
 
 
 //user route

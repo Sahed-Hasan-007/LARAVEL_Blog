@@ -28,6 +28,7 @@
                                     <th class="px-6 py-4 text-left text-xs font-semibold uppercase tracking-wider">Title</th>
                                     <th class="px-6 py-4 text-left text-xs font-semibold uppercase tracking-wider">Description</th>
                                     <th class="px-6 py-4 text-left text-xs font-semibold uppercase tracking-wider">Image</th>
+                                    <th class="px-6 py-4 text-left text-xs font-semibold uppercase tracking-wider">Categories</th>
                                     <th class="px-6 py-4 text-left text-xs font-semibold uppercase tracking-wider">User Name</th>
                                     <th class="px-6 py-4 text-left text-xs font-semibold uppercase tracking-wider">User Type</th>
                                     <th class="px-6 py-4 text-left text-xs font-semibold uppercase tracking-wider">Actions</th>
@@ -39,9 +40,14 @@
                                 <tr class="hover:bg-gray-700 transition duration-200">
                                     <td class="px-6 py-4 text-sm">{{ $loop->index + 1 }}</td>
                                     <td class="px-6 py-4 max-w-xs break-words text-sm whitespace-normal">{{ $post->title }}</td>
-                                    <td class="px-6 py-4 text-sm max-w-xs break-words whitespace-normal">{{ $post->content }}</td>
-                                    <td class="px-6 py-4 text-sm">
+                                    <td class="px-6 py-4 text-sm break-words whitespace-normal" style="width: 500px;">{{ $post->content }}</td>
+                                    <td class="px-6 py-4 text-sm" style="width: 250px;">
                                         <img src="{{ asset('postImage/' . $post->image) }}" class="w-24 h-16 rounded-xl object-cover shadow-md border-2 border-gray-600 hover:scale-110 transition-transform duration-300">
+                                    </td>
+                                    <td class="px-6 py-4 text-sm">
+                                        @foreach ($post->categories as $category)
+                                        <span>{{ $category->category_name }}</span>@if (!$loop->last), @endif
+                                        @endforeach
                                     </td>
                                     <td class="px-6 py-4 text-sm">{{ $post->user_name }}</td>
                                     <td class="px-6 py-4 text-sm">{{ $post->user_type }}</td>
@@ -93,4 +99,5 @@
         </x-app-layout>
     </div>
 </body>
+
 </html>

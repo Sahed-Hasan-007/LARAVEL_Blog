@@ -6,23 +6,25 @@ use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Comment;
 use App\Models\Like;
+use App\Models\Category;
 use illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
     public function viewPost($id)
     {
-        $post = Post::with('likes')->find($id);
+        $post = Post::with(['likes', 'categories'])->find($id);
         $comments = Comment::where('post_id', $id)->get();
         $likeCount = $post->likes->count();
-
+    
         return view('user/viewBlog', [
             'post' => $post,
             'comments' => $comments,
             'likeCount' => $likeCount,
+            'categories' => $post->categories,  
         ]);
     }
-
+    
 
     public function storeComment(Request $request, $id)
     {

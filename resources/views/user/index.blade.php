@@ -30,8 +30,16 @@
                                     class="rounded-t-2xl w-full h-48 object-cover">
                             </div>
                             <div class="p-4 lg:p-6 transition-all duration-300 rounded-b-2xl flex flex-col justify-between flex-grow">
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    @foreach ($post->categories as $category)
+                                    <span class="inline-block py-1 px-3 text-sm font-semibold text-white rounded-full"
+                                        style="background-color: {{ $category->getRandomColor() }}">
+                                        {{ $category->category_name }}
+                                    </span>
+                                    @endforeach
+                                </div>
                                 <div class="flex gap-2 mb-4">
-                                    <div class="flex items-center gap-3  text-gray-600">
+                                    <div class="flex items-center gap-3 text-gray-600">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none">
                                             <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zM12 14c-3.31 0-6 2.69-6 6v1h12v-1c0-3.31-2.69-6-6-6z" fill="currentColor" />
                                         </svg>
@@ -49,6 +57,7 @@
                                 </a>
                             </div>
                         </div>
+
 
                         @endforeach
 
