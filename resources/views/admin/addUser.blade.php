@@ -3,6 +3,7 @@
 
 <head>
     @include('admin.adminCss')
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
 </head>
 
 <body>
@@ -18,6 +19,7 @@
                 <div class="page-content">
 
                     <div class="p-4">
+                    <h1 class="flex items-center justify-center font-bold p-2 text-2xl text-white">Add a User</h1>
                         <form action="{{ route('adminAddUser') }}" method="POST" class=" p-4 border rounded-md flex-col gap-5 flex">
                             @csrf
                             <div class="flex flex-col justify-center items-center gap-4">

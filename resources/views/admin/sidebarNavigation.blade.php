@@ -8,7 +8,7 @@
     </div>
     <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
     <ul class="list-unstyled">
-        <li class="active"><a href="{{ route('adminHome') }}"> <i class="icon-home"></i>Home </a></li>
+        <li class="active"><a href="{{ route('home') }}"> <i class="icon-home"></i>Home </a></li>
         <li><a href="{{ route('adminViewPost')  }}"> <i class="fa fa-bar-chart"></i>View Post </a></li>
         <li><a href="{{ route('adminViewAddPost')  }}"> <i class="icon-grid"></i>Add Post </a></li>
         <li><a href="{{ route('adminViewUser')  }}"> <i class="icon-grid"></i>View User</a></li>

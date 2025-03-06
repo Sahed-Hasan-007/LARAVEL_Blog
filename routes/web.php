@@ -11,7 +11,6 @@ Route::get('/home', [AdminController::class,'index'])->name('home');
 
 //admin route
 Route::get('/home/admin/viewAddBlog', [AdminController::class,'viewAddPost'])->name('adminViewAddPost');
-Route::view('/adminHome', 'admin/index')->name('adminHome');
 Route::post('/home/admin/addBlog', [AdminController::class,'addPost'])->name('adminAddPost');
 Route::get('/home/admin/viewBlog', [AdminController::class,'viewPost'])->name('adminViewPost');
 Route::get('/home/admin/deleteBlog/{id}', [AdminController::class,'deletePost'])->name('adminDeletePost');
