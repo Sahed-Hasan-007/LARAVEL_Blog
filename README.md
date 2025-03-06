@@ -5,6 +5,7 @@
 </p>
 
 <p align="center">
+  <a href="#screenShot">Project ScreenShot</a> •
   <a href="#features">Features</a> •
   <a href="#installation">Installation</a> •
   <a href="#usage">Usage</a> •
@@ -13,6 +14,47 @@
 </p>
 
 ---
+
+<h2 id="screenShot">✨ Project ScreenShot</h2>
+
+<h3>Home Page</h3>
+<p align="center">
+  <a href="URL-to-the-image" target="_blank">
+    <img src="/public/Project_screenshot/homePage.png" alt="Project Screenshot" width="500">
+  </a>
+ </p>
+
+<h3>🔐For Admin</h3>
+<p align="center">
+  <a href="URL-to-the-image" target="_blank">
+    <img src="/public/Project_screenshot/adminHome.png" alt="Project Screenshot" width="500">
+  </a>
+  <a href="URL-to-the-image" target="_blank">
+    <img src="/public/Project_screenshot/adminViewPost.png" alt="Project Screenshot" width="500">
+  </a>
+  <a href="URL-to-the-image" target="_blank">
+    <img src="/public/Project_screenshot/adminAddPost.png" alt="Project Screenshot" width="500">
+  </a>
+  <a href="URL-to-the-image" target="_blank">
+    <img src="/public/Project_screenshot/adminViewUser.png" alt="Project Screenshot" width="500">
+  </a>
+  <a href="URL-to-the-image" target="_blank">
+    <img src="/public/Project_screenshot/adminAddUser.png" alt="Project Screenshot" width="500">
+  </a>
+ </p>
+
+ <h3>🔐For User</h3>
+<p align="center">
+  <a href="URL-to-the-image" target="_blank">
+    <img src="/public/Project_screenshot/userBlogPage.png" alt="Project Screenshot" width="500">
+  </a>
+  <a href="URL-to-the-image" target="_blank">
+    <img src="/public/Project_screenshot/userViewBlog.png" alt="Project Screenshot" width="500">
+  </a>
+  <a href="URL-to-the-image" target="_blank">
+    <img src="/public/Project_screenshot/userAddComment.png" alt="Project Screenshot" width="500">
+  </a>
+ </p>
 
 <h2 id="features">✨ Features</h2>
 <ul>
