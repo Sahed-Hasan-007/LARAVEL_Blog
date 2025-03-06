@@ -59,7 +59,7 @@
                     </span>
                     @endforeach
                 </div>
-                <h2 class="font-manrope font-bold text-3xl leading-10 text-gray-900 capitalize py-4">{{ $post->title }}</h2>
+                <h2 class="font-manrope font-bold text-3xl leading-10 text-gray-900 capitalize py-4 text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-pink-600 to-purple-600">{{ $post->title }}</h2>
                 <p class="text-gray-500 text-base font-normal mb-4 py-4">
                     {{ $post->content }}
                 </p>

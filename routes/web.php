@@ -25,7 +25,6 @@ Route::post('/admin/add-user', [AdminController::class, 'addUser'])->name('admin
 Route::get('/admin/viewBlog', [AdminController::class, 'viewBlogSite'])->name('adminViewBlogSite');
 
 
-
 //user route
 Route::get('/user/post/{id}', [UserController::class, 'viewPost'])->name('userViewPost');
 Route::post('/user/comments/store/{id}', [UserController::class, 'storeComment'])->name('userStoreComment');

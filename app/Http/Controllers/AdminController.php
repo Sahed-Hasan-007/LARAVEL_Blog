@@ -20,7 +20,8 @@ class AdminController extends Controller
         $totalComments = Comment::count();
 
         if ($role == 'user') {
-            return view('user/index', ['posts' => Post::with('categories')->get()]);
+            $posts = Post::with('categories')->paginate(6);
+            return view('user/index', compact('posts'));
         } else if ($role == 'admin') {
             return view('admin/index', [
                 'totalUsers' => $totalUsers,

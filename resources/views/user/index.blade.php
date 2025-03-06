@@ -11,15 +11,21 @@
 <body>
     <x-app-layout>
         <x-slot name="header">
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight ">
                 {{ __('User Dashboard') }}
             </h2>
         </x-slot>
 
         <div>
-            <section class="py-10">
+            <section class="py-5">
                 <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                    <h2 class="font-manrope text-4xl font-bold text-gray-900 text-center mb-16">Our latest blog</h2>
+                    <div class="flex justify-center p-4">
+                        <div class="flex justify-center items-center w-48 h-16 rounded-md bg-gradient-to-tr from-indigo-600 via-pink-600 to-purple-600 p-0.5">
+                            <div class="w-full h-full rounded-md bg-white  flex items-center justify-center">
+                                <p class="text-2xl font-manrope font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-pink-600 to-purple-600">Our latest blog</p>
+                            </div>
+                        </div>
+                    </div>
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
 
                         <!-- # Blog Card -->
@@ -47,7 +53,7 @@
                                     </div>
                                     <span class="text-indigo-600 font-medium block">[{{ $post->created_at }}]</span>
                                 </div>
-                                <h4 class="text-xl text-gray-900 font-medium leading-8 mb-5 overflow-hidden line-clamp-2">{{ $post->title }}</h4>
+                                <h4 class="text-xl font-medium leading-8 mb-5 overflow-hidden line-clamp-2 text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-pink-600 to-purple-600">{{ $post->title }}</h4>
                                 <p class="text-gray-500 leading-6 mb-10 overflow-hidden line-clamp-3">{{ $post->content }}</p>
                                 <a href="{{ route('userViewPost', ['id' => $post->id]) }}" class="inline-flex items-center px-4 py-2 mr-48 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-black focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-opacity-75 transition duration-200 mt-auto">
                                     Explore
@@ -57,15 +63,16 @@
                                 </a>
                             </div>
                         </div>
-
-
                         @endforeach
 
+                    </div> <!-- Close the grid -->
+
+                    <!-- Pagination Component -->
+                    <div class="flex justify-center mt-10">
+                        {{ $posts->links('vendor.pagination.custom') }}
                     </div>
                 </div>
             </section>
-
-
         </div>
     </x-app-layout>
 </body>
