@@ -20,7 +20,7 @@
 <h3>Home Page</h3>
 <p align="center">
   <a href="URL-to-the-image" target="_blank">
-    <img src="/public/Project_screenshot/homePage.png" alt="Project Screenshot" width="500">
+    <img src="/public/Project_screenshot/homePageCopy.png" alt="Project Screenshot" width="500">
   </a>
  </p>
 
