@@ -69,5 +69,22 @@ class UserController extends Controller
             'likes_count' => $likeCount,
         ]);
     }
+
+    public function deleteComment($id){
+        $comment = Comment::where('id', $id)->first();
+        $activeUser_id = Auth::user()->id;
+        $commentUser_id= $comment->user_id;
+        if( $commentUser_id == $activeUser_id ){
+            $comment->delete();
+            return redirect()->back()->with('success','Comment Deleted Successfully');
+        }
+        elseif(Auth::user()->role=='admin'){
+            $comment->delete();
+            return redirect()->back()->with('success','Comment Deleted Successfully');
+        }
+        else{
+            return redirect()->back()->with('fail','You have not permission');
+        }
+    }
     
 }

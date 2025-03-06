@@ -13,5 +13,6 @@
         <li><a href="{{ route('adminViewAddPost')  }}"> <i class="icon-grid"></i>Add Post </a></li>
         <li><a href="{{ route('adminViewUser')  }}"> <i class="icon-grid"></i>View User</a></li>
         <li><a href="{{ route('adminViewAddUser')}}"> <i class="icon-grid"></i>Add User</a></li>
+        <li><a href="{{ route('adminViewBlogSite')}}"> <i class="icon-grid"></i>Blog Site</a></li>
     </ul>
 </nav>

@@ -165,4 +165,10 @@ class AdminController extends Controller
         $user->delete();
         return redirect()->back()->with('message', 'User deleted Successfully');
     }
+
+    public function viewBlogSite()
+    {
+        return view('user/index', ['posts' => Post::get()]);
+    }
+
 }

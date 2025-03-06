@@ -4,11 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
     <title></title>
 </head>
 
 <body>
+
+<!-- message -->
+@include('user.successAlertMessage')
+        @include('user.failAlertMessage')
+        <!-- message -->
     <section class="py-10 relative">
+
         <div class="w-full max-w-7xl px-4 md:px-5 lg:px-5 mx-auto">
             <div class="w-full flex-col justify-start items-start lg:gap-14 gap-4 inline-flex">
                 <h2 class="w-full text-gray-900 text-4xl font-bold font-manrope leading-normal flex items-center gap-2">
@@ -50,11 +57,13 @@
                                         <path d="M1.62629 2.43257C3.64001 0.448687 6.82082 0.311339 8.99614 2.02053C11.1723 0.311339 14.3589 0.448687 16.3726 2.43257L16.3734 2.43334C18.5412 4.57611 18.5412 8.04382 16.3804 10.1867L16.378 10.1891L9.46309 16.9764C9.20352 17.2312 8.78765 17.2309 8.52844 16.9758L1.62629 10.1821C-0.542748 8.04516 -0.542748 4.56947 1.62629 2.43257Z" fill="currentColor" />
                                     </svg>
                                 </a>
-                                <a href="" class="w-5 h-5 flex items-center justify-center group">
+                                <button onclick="confirmDelete('{{ route('userDeleteComment', ['id' => $comment->id]) }}')" class="w-5 h-5 flex items-center justify-center group">
                                     <svg class="text-indigo-600 group-hover:text-indigo-800 transition-all duration-700 ease-in-out" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
                                         <path fill-rule="evenodd" clip-rule="evenodd" d="M4.5835 3.16634V3.83301H1.50016C1.13197 3.83301 0.833496 4.13148 0.833496 4.49967C0.833496 4.86786 1.13197 5.16634 1.50016 5.16634L2.33356 5.16642L2.33356 11.5482C2.33354 12.6855 2.33352 13.6065 2.43103 14.3318C2.5325 15.0865 2.75042 15.7283 3.26105 16.2389C3.77168 16.7495 4.4135 16.9675 5.16821 17.0689C5.89348 17.1665 6.81445 17.1664 7.9518 17.1664H10.0486C11.186 17.1664 12.107 17.1665 12.8322 17.0689C13.5869 16.9675 14.2288 16.7495 14.7394 16.2389C15.25 15.7283 15.4679 15.0865 15.5694 14.3318C15.6669 13.6065 15.6669 12.6856 15.6669 11.5483V5.16642L16.5002 5.16634C16.8684 5.16634 17.1668 4.86786 17.1668 4.49967C17.1668 4.13148 16.8684 3.83301 16.5002 3.83301H13.4168V3.16634C13.4168 1.87768 12.3722 0.833008 11.0835 0.833008H6.91683C5.62817 0.833008 4.5835 1.87768 4.5835 3.16634ZM6.91683 2.16634C6.36455 2.16634 5.91683 2.61406 5.91683 3.16634V3.83301H12.0835V3.16634C12.0835 2.61406 11.6358 2.16634 11.0835 2.16634H6.91683ZM7.50014 7.58303C7.86833 7.58303 8.16681 7.8815 8.16681 8.24969L8.16681 12.7497C8.16681 13.1179 7.86833 13.4164 7.50014 13.4164C7.13195 13.4164 6.83348 13.1179 6.83348 12.7497L6.83348 8.24969C6.83348 7.8815 7.13195 7.58303 7.50014 7.58303ZM11.1669 8.24969C11.1669 7.8815 10.8684 7.58303 10.5002 7.58303C10.132 7.58303 9.83356 7.8815 9.83356 8.24969V12.7497C9.83356 13.1179 10.132 13.4164 10.5002 13.4164C10.8684 13.4164 11.1669 13.1179 11.1669 12.7497L11.1669 8.24969Z" fill="currentColor" />
                                     </svg>
-                                </a>
+                                </button>
+
+
                             </div>
                         </div>
                     </div>
@@ -63,6 +72,22 @@
             </div>
         </div>
     </section>
+
+    <script>
+        function confirmDelete(url) {
+            swal({
+                title: "Are you sure?",
+                text: "Once deleted, you will not be able to recover this post!",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            }).then((willDelete) => {
+                if (willDelete) {
+                    window.location.href = url;
+                }
+            });
+        }
+    </script>
 </body>
 
 </html>
