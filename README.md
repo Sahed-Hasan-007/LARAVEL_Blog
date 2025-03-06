@@ -8,24 +8,35 @@
   <a href="#features">Features</a> •
   <a href="#installation">Installation</a> •
   <a href="#usage">Usage</a> •
-  <a href="#api-endpoints">API Endpoints</a> •
+  <a href="#api-endpoints">🌐 API Endpoints</a> •
   <a href="#contributing">Contributing</a> •
-  <a href="#license">License</a>
 </p>
 
 ---
 
 <h2 id="features">✨ Features</h2>
+<ul>
+  <li>🏷️Different route depending on user role</li>
+  <li>🔐 User authentication (registration, login, logout).</li>
+  <li>💬 Comment and like system for blog posts.</li>
+  <li>🏷️ Categorize posts with tags and categories.</li>
+  <li>🔍 Search functionality to find posts by title or content.</li>
+  <li>📱 Responsive design for mobile and desktop.</li>
+</ul>
 
+<h3>✨For Admin</h3>
 <ul>
   <li>📝 Create, read, update, and delete blog posts.</li>
-  <li>🔐 User authentication (registration, login, logout).</li>
-  <li>💬 Commenting system for blog posts.</li>
-  <li>🏷️ Categorize posts with tags and categories.</li>
-  <li>📄 Pagination for blog posts and comments.</li>
-  <li>🔍 Search functionality to find posts by title or content.</li>
-  <li>📤 RESTful API for managing posts and comments.</li>
-  <li>📱 Responsive design for mobile and desktop.</li>
+  <li>📝 Create, read, update, and delete Users.</li>
+  <li>📝 Change User Role</li>
+</ul>
+
+<h3>✨For User</h3>
+<ul>
+  <li>📝 View a post</li>
+  <li>📝 Can give a like</li>
+  <li>📝 Can give a comment</li>
+  <li>📝 Can delete his own comment</li>
 </ul>
 
 ---
@@ -82,7 +93,7 @@ DB_PASSWORD=your_database_password</code></pre>
 
 <ul>
   <li>Register a new account or log in with existing credentials.</li>
-  <li>Create, edit, and delete blog posts (if logged in).</li>
+  <li>Create, edit, and delete blog posts (if logged in as admin).</li>
   <li>Add comments to blog posts.</li>
   <li>Search for posts using the search bar.</li>
   <li>Explore posts by tags or categories.</li>
@@ -127,12 +138,8 @@ DB_PASSWORD=your_database_password</code></pre>
 
 ---
 
-<h2 id="license">📄 License</h2>
-
-<p>This project is licensed under the MIT License. See the <a href="LICENSE">LICENSE</a> file for details.</p>
-
 ---
 
 <p align="center">
-  Made with ❤️ by <strong>Your Name</strong>
+  Made with ❤️ by <strong>Shahed Hasan</strong>
 </p>
